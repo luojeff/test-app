@@ -1,14 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 import json
 
 app = Flask(__name__)
 
-xx = 10
+# Global variable
+app.config["x"] = 0
     
-@app.route("/data", methods=["GET"])
+@app.route("/", methods=["GET"])
 def index():
-    mydict = {"data": x}
-    return json.dumps(mydict)
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
