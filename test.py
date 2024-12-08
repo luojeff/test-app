@@ -7,7 +7,7 @@ app.config["nam"] = "Jeffrey"
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        if app.config["nam"] = "Jeffrey":
+        if app.config["nam"] == "Jeffrey":
             app.config["nam"] = "Kelly"
         else:
             app.config["nam"] = "Jeffrey"    
