@@ -4,14 +4,15 @@ import json
 app = Flask(__name__)
 
 # Global variable
-app.config["x"] = 0
+napp.config["x"] = 0
     
 @app.route("/", methods=["GET", "POST"])
 def index():
+    valu = 0;
     if request.method == "POST":
-        return "Submitted!"
+        valu = 5
     
-    return render_template("index.html")
+    return render_template("index.html", val=valu)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
