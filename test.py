@@ -1,18 +1,18 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 import json
 
 app = Flask(__name__)
-app.config["nam"] = "Jeffrey"
+db = SQLAlchemy(app)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://"
     
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        if app.config["nam"] == "Jeffrey":
-            app.config["nam"] = "Kelly"
-        else:
-            app.config["nam"] = "Jeffrey"    
+        return "pressed"
     
-    return render_template("index.html", name = app.config["nam"])
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
