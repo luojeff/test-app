@@ -2,9 +2,6 @@ from flask import Flask, render_template, request
 import json
 
 app = Flask(__name__)
-
-# Global variable
-napp.config["x"] = 0
     
 @app.route("/", methods=["GET", "POST"])
 def index():
