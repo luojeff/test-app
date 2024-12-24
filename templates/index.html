@@ -3,8 +3,15 @@
   <head></head>  
   <body>
     <form method="POST">
-      <input></input>     
+      <input></input>
       <button type="submit">Submit request</button>
     </form>
+    {% for x in li %}
+    <tr>
+      {% for el in x %}
+      <td>{{ el }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
   </body>
 </html>
