@@ -6,15 +6,12 @@ app = Flask(__name__)
     
 @app.route("/", methods=["GET", "POST"])
 def index():
-    print(request.method)
     return render_template("index.html")
 
 @app.route("/query", methods=["GET", "POST"])
 def query():
     conn = get_db_connection()
     cur = conn.cursor()
-
-    print (request.method)
 
     if request.method == 'POST':
         cur.execute("INSERT INTO test_table(name, age) VALUES (%s, %s);", (request.form.get("name"), request.form.get("age")))
