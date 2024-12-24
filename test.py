@@ -15,8 +15,8 @@ def index():
 def query():
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute("SELECT * FROM test_db")
-    data = cur.fetchall()    
+    cur.execute("SELECT * FROM test_table;")
+    data = cur.fetchall()
     cur.close()
     conn.close()
 
